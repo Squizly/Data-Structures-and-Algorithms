@@ -5,12 +5,11 @@
 
 #include "Sort.h"
 
-
 int main()
 {
 	setlocale(0, "Rus");
 
-	const int SIZE_ARRAY = 1000;
+	const int SIZE_ARRAY = 20;
 
 	// Creating a random number generator
 	std::random_device rd;
@@ -41,24 +40,62 @@ int main()
 
 	int number_comparisons = 0;
 
-	std::cout << "\t\t\t Shell Sort\n" << std::endl;
+	int choice_user = 0;
 
-	number_comparisons = Sort<int>::shell_sort(pointer_ascending);
-	std::cout << "Check sort : " << Sort<int>::check_sorting(pointer_ascending) << "\n";
-	std::cout << "Number of comparisons : " << number_comparisons << std::endl;
+	std::cout << "Select sorting method 1 - Shell, 2 - Heap : ";
+	std::cin >> choice_user;
 
-	number_comparisons = Sort<int>::shell_sort(pointer_descending);
-	std::cout << "\nCheck sort : " << Sort<int>::check_sorting(pointer_descending) << "\n";
-	std::cout << "Number of comparisons : " << number_comparisons << std::endl;
+	switch (choice_user) {
 
-	number_comparisons = Sort<int>::shell_sort(pointer_random);
-	std::cout << "\nCheck sort : " << Sort<int>::check_sorting(pointer_random) << "\n";
-	std::cout << "Number of comparisons : " << number_comparisons << std::endl;
-	
-	std::cout << "\t\t\t Heap Sort\n" << std::endl;
+	case 1 :
 
-	//TO DO:: heap sort
+		std::cout << "\n=== === === === === === === === === === === === === === === === === ===" << std::endl;
+		std::cout << "\t\t\t Shell Sort" << std::endl;
+		std::cout << "=== === === === === === === === === === === === === === === === === ===" << std::endl;
 
+		number_comparisons = Sort<int>::shell_sort(pointer_ascending);
+		std::cout << "\nArray ascending." << std::endl;
+		std::cout << "Check sort : " << Sort<int>::check_sorting(pointer_ascending) << "\n";
+		std::cout << "Number of comparisons : " << number_comparisons << std::endl;;
+
+		number_comparisons = Sort<int>::shell_sort(pointer_descending);
+		std::cout << "\nArray descending." << std::endl;
+		std::cout << "\nCheck sort : " << Sort<int>::check_sorting(pointer_descending) << "\n";
+		std::cout << "Number of comparisons : " << number_comparisons << std::endl;
+
+		number_comparisons = Sort<int>::shell_sort(pointer_random);
+		std::cout << "\nArray random." << std::endl;
+		std::cout << "\nCheck sort : " << Sort<int>::check_sorting(pointer_random) << "\n";
+		std::cout << "Number of comparisons : " << number_comparisons << std::endl;
+
+		break;
+
+	case 2 :
+		std::cout << "\n=== === === === === === === === === === === === === === === === === ===" << std::endl;
+		std::cout << "\t\t\t Heap Sort" << std::endl;
+		std::cout << "=== === === === === === === === === === === === === === === === === ===" << std::endl;
+
+		number_comparisons = Sort<int>::heap_sort(pointer_ascending);
+		std::cout << "\nArray ascending." << std::endl;
+		std::cout << "Check sort : " << Sort<int>::check_sorting(pointer_ascending) << "\n";
+		std::cout << "Number of comparisons : " << number_comparisons << std::endl;
+
+		number_comparisons = Sort<int>::heap_sort(pointer_descending);
+		std::cout << "\nArray descending." << std::endl;
+		std::cout << "Check sort : " << Sort<int>::check_sorting(pointer_descending) << "\n";
+		std::cout << "Number of comparisons : " << number_comparisons << std::endl;
+
+		number_comparisons = Sort<int>::heap_sort(pointer_random);
+		std::cout << "\nArray random." << std::endl;
+		std::cout << "Check sort : " << Sort<int>::check_sorting(pointer_random) << "\n";
+		std::cout << "Number of comparisons : " << number_comparisons << std::endl;
+
+		break;
+
+	default:
+		std::cerr << "Failed. Insert only 1 or 2" << std::endl;
+		return -1;
+	}
 
 	return 0;
 }
