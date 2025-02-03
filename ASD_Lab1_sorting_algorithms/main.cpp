@@ -9,7 +9,7 @@ int main()
 {
 	setlocale(0, "Rus");
 
-	const int SIZE_ARRAY = 20;
+	const int SIZE_ARRAY = 1000000;
 
 	// Creating a random number generator
 	std::random_device rd;
