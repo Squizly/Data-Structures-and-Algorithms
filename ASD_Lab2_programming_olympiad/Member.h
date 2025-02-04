@@ -8,6 +8,9 @@ public:
 
 	bool operator < (const Member& otherObject) const;
 	bool operator > (const Member& otherObject) const;
+
+	void write_to_file(std::ofstream& outFile, int rank) const;
+
 private:
 	int ID;
 	int solved_tasks = 0; // 0 - 5

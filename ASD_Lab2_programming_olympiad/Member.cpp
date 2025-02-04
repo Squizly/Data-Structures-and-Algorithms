@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "Member.h"
 
@@ -34,4 +35,13 @@ bool Member::operator > (const Member& otherObject) const
 	if (failed_attempts != otherObject.failed_attempts) return failed_attempts > otherObject.failed_attempts;
 
 	return ID > otherObject.ID;
+}
+
+void Member::write_to_file(std::ofstream& outFile, int rank) const {
+	outFile << ID << "    ";
+	outFile << points << "\t";
+	outFile << solved_tasks << "\t";
+	outFile << time_spent << "    \t";
+	outFile << failed_attempts << "\t\t";
+	outFile << rank << std::endl;
 }

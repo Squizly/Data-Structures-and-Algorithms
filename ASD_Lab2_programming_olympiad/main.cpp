@@ -1,13 +1,15 @@
 #include <iostream>
+#include <fstream>
 #include <ctime>
 
 #include "Member.h"
 #include "Sort.h"
 
+
 // Programming Olympiad with using class Sort (ASD_Lab1)
 
 int main() {
-	const int NUMBER_MEMBERS = 1000000;
+	const int NUMBER_MEMBERS = 100000;
 
 	std::vector<Member*> students;
 
@@ -65,6 +67,16 @@ int main() {
 	default:
 		break;
 	}
+
+	std::ofstream outFile("results.txt");
+	outFile << "ID    Points SolvedTasks TimeSpent FailedAttempts Rank" << std::endl;
+
+	for (int i = 0; i < NUMBER_MEMBERS; i++) {
+		students[i]->write_to_file(outFile, i);
+	}
+	outFile.close();
+
+	for (Member* student : students) delete student;
 
 	return 0;
 }
