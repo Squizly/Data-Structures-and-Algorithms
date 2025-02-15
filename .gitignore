@@ -399,3 +399,6 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 ASD_Lab3_binary_tree/main.exe
+ASD_Lab3_binary_tree/ASD_Lab3_binary_tree.vcxproj
+ASD_Lab3_binary_tree/ASD_Lab3_binary_tree.vcxproj.filters
+ASD_Lab3_binary_tree/ASD_Lab3_binary_tree.sln
