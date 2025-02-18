@@ -1,30 +1,33 @@
-#pragma once
+#ifndef BINARYTREE_H
+#define BINARYTREE_H
 
 struct Node
 {
-	int key;
-	Node* left, * right;
+	int value;
+	Node* left_child, *right_child;
 
-	Node(int value) {
-		key = value;
-		left = nullptr;
-		right = nullptr;
-	}
-
+	Node(int val) : value(val), left_child(NULL), right_child(NULL) {}
 };
 
 class BinaryTree
 {
+
+	Node* current_vertex = NULL;
+	Node* parent_vertex = NULL;
+	Node* root = NULL;
+
 public:
 
 	BinaryTree();
-	BinaryTree(int key);
+	~BinaryTree();
 
+	void add(int value);
 
 private:
 
-	Node* current_vertex = nullptr;
-	Node* parent_vertex = nullptr;
-	Node* root = nullptr;
+	void deleteTree(Node* currentNode);
+
 
 };
+
+#endif // BINARYTREE_H
