@@ -22,11 +22,15 @@ public:
 	~BinaryTree();
 
 	void add(int value);
-
+    
+    void fillTree(const std::vector<int>& values);
+    Node* find(int value);
+    int getLevel(int value);
+    
 private:
 
 	void deleteTree(Node* currentNode);
-
+    int helpSearch(int value);
 
 };
 
